@@ -1,0 +1,8 @@
+<h1>Sketches</h1>
+<h2>Nothing. Because I can't do anything<h2>
+    <% @sketches.each do |sketch| %>
+          <li>
+            <%= sketch.created_at %>
+          </li>
+      <% end %>
+    <%= link_to "New Sketch", new_sketch_path %>
