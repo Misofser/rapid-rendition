@@ -16,4 +16,15 @@
                   } %></li>
 </ul>
 
-<h2>Votes</h2>
+<div>
+  <h2>Votes</h2>
+  <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
+    <%= form.hidden_field :value, value: 1 %>
+    <%= form.submit "+" %>
+  <% end %>
+
+  <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
+    <%= form.hidden_field :value, value: -1 %>
+    <%= form.submit "-" %>
+  <% end %>
+</div>
