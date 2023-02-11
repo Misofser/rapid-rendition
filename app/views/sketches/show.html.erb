@@ -1,5 +1,9 @@
 <h1>Challenge</h1>
-<%= image_tag @sketch.image, size: '200x200' %>
+<% if @sketch.image.present? %>
+  <%= image_tag @sketch.image, size: '200x200' %>
+<% else %>
+  Image not found for sketch id: <%= @sketch.id %>
+<% end %>
 <ul>
   <li><%= link_to "Edit", edit_sketch_path(@sketch) %></li>
   <li><%= link_to "Destroy", sketch_path(@sketch), data: {
