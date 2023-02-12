@@ -2,8 +2,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
@@ -17,20 +15,18 @@
 <h3>
   <%= link_to "New Sketch", new_sketch_path %>
 </h3>
+
 <div class="sketches">   
   <% @sketches.each do |sketch| %>
-        <% if sketch.image.present? %>
-          <a href="/sketches/<%= sketch.id %>">
-            <%= image_tag sketch.image %>
-          </a>
-        <% else %>
-          <a href="/sketches/<%= sketch.id %>">
-            Image not found for sketch id: <%= sketch.id %>
-          </a>
-        <% end %>
+    <% if sketch.image.present? %>
+      <a href="/sketches/<%= sketch.id %>">
+        <%= image_tag sketch.image %>
+      </a>
+    <% else %>
+      <a href="/sketches/<%= sketch.id %>">
+        Image not found for sketch id: <%= sketch.id %>
+      </a>
     <% end %>
-
+  <% end %>
 </div>
-    
-
     

@@ -1,58 +1,52 @@
 html, body, p {
-    margin: 15px 30px;
-  }
+  margin: 15px 30px;
+}
   
-  body {
-    background-color: #fefdfa;
-    font-family: 'Poppins', sans-serif;
-  }
+body {
+  background-color: #fefdfa;
+  font-family: 'Poppins', sans-serif;
+}
   
-  h1 {
-    font-family: 'Mansalva', cursive;
-    font-size: 60px;
-  }
+h1 {
+  font-family: 'Mansalva', cursive;
+  font-size: 60px;
+}
 
-  h3 {
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 25px;
-    transition: background-color 0.5s;
-    text-align: center;
-  }
+h3 {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+}
 
-  header {
-    text-align: center;
-  }
+header {
+  text-align: center;
+}
 
-  .plus img {
-    width: 100px;
-    height: 100px;
-  }
+.plus img {
+  width: 100px;
+  height: 100px;
+}
 
-  .sketch img {
-    width: 30%;
-    height: auto;
-  }
+.sketch img {
+  width: 30%;
+  height: auto;
+}
 
-  .sketches {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.sketches {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .sketches a {
-    width: 33.33%;
-   }
+.sketches a {
+  width: 33.33%;
+}
 
-  .sketches img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    padding: 10px;
-  }
-  
- 
- 
-
-  
+.sketches img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  padding: 10px;
+}
   
