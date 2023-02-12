@@ -1,24 +1,15 @@
-# README
+# Rapid Rendition
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It is a web app. The idea behind the app is to create a fun, competitive environment where users can participate in quick drawing challenges every week and improve their skills in sketching and composition.
 
-Things you may want to cover:
+## Discover the gallery of sketches from our drawing challenge participants.
 
-* Ruby version
+![This is an image](/screenshots/Screenshot1.png)
 
-* System dependencies
+## Join the challenge by creating and submitting your own sketch.
 
-* Configuration
+![This is an image](/screenshots/Screenshot3.png)
 
-* Database creation
+## Cast your vote for the sketch you adore!
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![This is an image](/screenshots/Screenshot4.png)
