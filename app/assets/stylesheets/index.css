@@ -25,7 +25,12 @@ html, body, p {
     text-align: center;
   }
 
- .sketch img {
+  .plus img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .sketch img {
     width: 30%;
     height: auto;
   }
@@ -38,7 +43,7 @@ html, body, p {
   .sketches a {
     width: 33.33%;
    }
-    
+
   .sketches img {
     width: 100%;
     height: auto;
