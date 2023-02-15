@@ -22,7 +22,9 @@
   <h2>Votes</h2>
   <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
     <%= form.hidden_field :value, value: 1 %>
-    <%= form.submit "+" %>
+    <%= button_tag(type: "submit", class: "vote-button") do %>
+      <%= image_tag("vote-for.png", alt: "Vote for") %>
+    <% end %>
   <% end %>
 
   <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
