@@ -6,10 +6,26 @@
 </head>
 
 <header>
+
+  <div class="nav">
+    <% if current_user %> 
+      <ul> 
+        <li><%= current_user.email %></li> 
+        <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+      </ul> 
+    <% else %> 
+      <ul> 
+        <li><%= link_to "Login", 'login' %></a></li> 
+        <li><%= link_to "Signup", 'signup' %></a></li> 
+      </ul> 
+    <% end %>
+  <div>
+
   <div>
     <h1>Rapid-rendition</h1>
     <h2>Participate in our weekly sketch contest, challenge your artistic skills, and let the community vote for their favorite piece!<h2>
   </div>
+
 </header>
 
 <h3>
@@ -28,5 +44,6 @@
       </a>
     <% end %>
   <% end %>
+  
 </div>
     

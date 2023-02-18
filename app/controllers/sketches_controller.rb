@@ -1,4 +1,7 @@
 class SketchesController < ApplicationController
+  
+  before_action :require_user, only: [:new, :edit, :destroy]
+
   def index
     @sketches = Sketch.all
   end
