@@ -10,13 +10,15 @@
   <% end %>
 </div>
 
-<ul>
-  <li><%= link_to "Edit", edit_sketch_path(@sketch) %></li>
-  <li><%= link_to "Destroy", sketch_path(@sketch), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+<% if @sketch.user == current_user %>
+  <ul>
+    <li><%= link_to "Edit", edit_sketch_path(@sketch) %></li>
+    <li><%= link_to "Destroy", sketch_path(@sketch), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></li>
+  </ul>
+<% end %>
 
 <div>
   <h2>Votes</h2>

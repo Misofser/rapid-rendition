@@ -1,6 +1,8 @@
 class SketchesController < ApplicationController
   
   before_action :require_user, only: [:new, :edit, :destroy]
+  before_action :set_sketch, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :destroy]
 
   def index
     @sketches = Sketch.all
@@ -15,8 +17,12 @@ class SketchesController < ApplicationController
   end
 
   def create
-    @sketch = Sketch.create!(sketch_params)
-    redirect_to @sketch
+    @sketch = current_user.sketches.build(sketch_params)
+    if @sketch.save
+      redirect_to @sketch
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -41,7 +47,13 @@ class SketchesController < ApplicationController
   end
 
   private
+
     def sketch_params
       params.require(:sketch).permit(:image)
     end
+  
+    def set_sketch
+      @sketch = Sketch.find(params[:id])
+    end  
+
 end
