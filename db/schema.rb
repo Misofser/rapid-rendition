@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_26_141304) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_03_161737) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -63,7 +63,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_26_141304) do
     t.integer "sketch_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["sketch_id"], name: "index_votes_on_sketch_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -71,4 +73,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_26_141304) do
   add_foreign_key "sketches", "users"
   add_foreign_key "sketches", "users"
   add_foreign_key "votes", "sketches"
+  add_foreign_key "votes", "users"
 end
