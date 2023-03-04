@@ -2,6 +2,10 @@
 
 <ul>
   <% @challenges.each do |challenge| %>
-    <li><%= challenge.title %></li>
+    <li>
+      <a href="/challenges/<%= challenge.id %>">
+        <%= challenge.title %>
+      <a>
+    </li>
   <% end %>
 </ul>
