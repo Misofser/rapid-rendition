@@ -65,3 +65,7 @@ header {
   width: 100px;
   height: auto;
 }
+
+.challenge-list ul li {
+  display: block;
+}

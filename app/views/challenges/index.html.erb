@@ -1,13 +1,15 @@
 <h1>Challenges</h1>
 
-<ul>
-  <% @challenges.each do |challenge| %>
-    <li>
-      <a href="/challenges/<%= challenge.id %>">
-        <%= challenge.title %>
-      <a>
-    </li>
-  <% end %>
-</ul>
+  <div class="challenge-list">
+    <ul>
+      <% @challenges.each do |challenge| %>
+        <li>
+          <a href="<%= challenge_path(challenge) %>">
+            <%= challenge.title %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<%= link_to "New Challenge", new_challenge_path %>
+  <%= link_to "New Challenge", new_challenge_path %>
