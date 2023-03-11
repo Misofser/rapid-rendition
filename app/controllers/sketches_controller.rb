@@ -49,7 +49,7 @@ class SketchesController < ApplicationController
   private
 
     def sketch_params
-      params.require(:sketch).permit(:image)
+      params.require(:sketch).permit(:image, :challenge_id)
     end
   
     def set_sketch
