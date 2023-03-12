@@ -9,7 +9,6 @@ class SketchesController < ApplicationController
   end
 
   def show
-    @sketch = Sketch.find(params[:id])
   end
   
   def new
@@ -26,11 +25,9 @@ class SketchesController < ApplicationController
   end
 
   def edit
-    @sketch = Sketch.find(params[:id])
   end
 
   def update
-    @sketch = Sketch.find(params[:id])
     @sketch.image.attach(params[:image])
     if @sketch.update(sketch_params)
       redirect_to @sketch
@@ -40,7 +37,6 @@ class SketchesController < ApplicationController
   end
 
   def destroy
-    @sketch = Sketch.find(params[:id])
     @sketch.destroy
     
     redirect_to root_path, status: :see_other
