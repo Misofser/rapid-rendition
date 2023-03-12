@@ -1,11 +1,14 @@
 class ChallengesController < ApplicationController
+  
+  before_action :require_user, only: [:new, :edit, :destroy]
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :destroy]
 
   def index
     @challenges = Challenge.all
   end
 
   def show
-    @challenge = Challenge.find(params[:id])
   end
 
   def new
@@ -13,8 +16,7 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    @challenge = Challenge.new(challenge_params)
-
+    @challenge = current_user.challenges.build(challenge_params)
     if @challenge.save
       redirect_to @challenge
     else
@@ -23,8 +25,13 @@ class ChallengesController < ApplicationController
   end
 
   private
+
   def challenge_params
-    params.require(:challenge).permit(:title, :description)
+    params.require(:challenge).permit(:title, :description, :user_id)
   end
+
+  def set_challenge
+    @challenge = Challenge.find(params[:id])
+  end 
 
 end
