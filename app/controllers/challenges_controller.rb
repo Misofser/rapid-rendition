@@ -3,6 +3,7 @@ class ChallengesController < ApplicationController
   before_action :require_user, only: [:new, :edit, :destroy]
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, only: [:edit, :destroy]
+  before_action :require_admin, only: [:new, :edit, :destroy]
 
   def index
     @challenges = Challenge.all

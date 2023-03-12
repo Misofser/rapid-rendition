@@ -12,4 +12,8 @@
     </ul>
   </div>
 
-  <%= link_to "New Challenge", new_challenge_path %>
+  <% if current_user && current_user.admin? %> 
+    <p> 
+      <%= link_to "New Challenge", new_challenge_path %>
+    </p> 
+  <% end %> 
