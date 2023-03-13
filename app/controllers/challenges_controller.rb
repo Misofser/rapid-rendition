@@ -1,8 +1,8 @@
 class ChallengesController < ApplicationController
   
-  before_action :require_user, only: [:new, :edit, :destroy]
+  before_action :require_user, only: [:new, :edit, :update, :destroy]
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_user, only: [:edit, :destroy]
+  before_action -> { authorize_user (@challenge) }, only: [:edit, :update, :destroy]
   before_action :require_admin, only: [:new, :edit, :destroy]
 
   def index
@@ -22,6 +22,17 @@ class ChallengesController < ApplicationController
       redirect_to @challenge
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+  
+  def edit
+  end
+
+  def update
+    if @challenge.update(challenge_params)
+      redirect_to @challenge
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

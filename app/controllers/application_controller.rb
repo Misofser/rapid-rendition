@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user 
   end 
   
-  def authorize_user
-    unless @sketch.user == current_user
-      redirect_to sketches_path, alert: 'You are not authorized to perform this action.'
+  def authorize_user(resource)
+    unless resource.user == current_user
+      redirect_to resource.class.to_s.downcase.pluralize, alert: 'You are not authorized to perform this action.'
     end
   end
   

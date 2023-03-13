@@ -1,8 +1,8 @@
 class SketchesController < ApplicationController
   
-  before_action :require_user, only: [:new, :edit, :destroy]
+  before_action :require_user, only: [:new, :edit, :update, :destroy]
   before_action :set_sketch, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_user, only: [:edit, :destroy]
+  before_action -> { authorize_user (@sketch) }, only: [:edit, :update, :destroy]
 
   def index
     @sketches = Sketch.all
