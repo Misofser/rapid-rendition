@@ -2,10 +2,12 @@
 
 <p><%= @challenge.description %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_challenge_path(@challenge) %></li>
-  <li><%= link_to "Destroy", challenge_path(@challenge), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %></li>
-</ul>
+<% if @challenge.user == current_user %>
+  <ul>
+    <li><%= link_to "Edit", edit_challenge_path(@challenge) %></li>
+    <li><%= link_to "Destroy", challenge_path(@challenge), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+    } %></li>
+  </ul>
+<% end %>
