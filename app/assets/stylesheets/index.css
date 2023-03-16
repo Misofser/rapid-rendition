@@ -24,8 +24,18 @@ header {
   text-align: center;
 }
 
-.nav ul li {
-  display: inline;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left li {
+  display: inline-block;
+}
+
+.nav-right li {
+  display: inline-block;
 }
 
 .plus img {
