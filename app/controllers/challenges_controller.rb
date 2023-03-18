@@ -10,6 +10,7 @@ class ChallengesController < ApplicationController
   end
 
   def show
+    @sketches = @challenge.sketches
   end
 
   def new

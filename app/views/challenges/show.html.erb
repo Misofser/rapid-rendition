@@ -11,3 +11,13 @@
     } %></li>
   </ul>
 <% end %>
+
+<h2>Sketches</h2>
+
+<div class=sketch>
+  <ul>
+    <% @sketches.each do |sketch| %>
+      <%= image_tag sketch.image%>
+    <% end %>
+  </ul>
+</div>
