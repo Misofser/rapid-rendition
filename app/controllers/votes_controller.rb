@@ -6,10 +6,17 @@ class VotesController < ApplicationController
     @sketch = Sketch.find(params[:sketch_id])
     @vote = @sketch.votes.build(vote_params)
     @vote.user = current_user
-    if @vote.save
-      redirect_to sketch_path(@vote.sketch)
+
+    if Vote.exists?(user: current_user, sketch: @sketch)
+      flash[:error] = "You have already voted on this sketch"
+      redirect_to @sketch
     else
-      render 'new'
+      if @vote.save
+        flash[:success] = "Vote created successfully!"
+        redirect_to sketch_path(@vote.sketch)
+      else
+        render 'sketches/show'
+      end
     end
   end
   
