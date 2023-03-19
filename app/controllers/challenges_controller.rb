@@ -11,6 +11,7 @@ class ChallengesController < ApplicationController
 
   def show
     @sketches = @challenge.sketches
+    @sketch_ratings = @challenge.sketch_ratings
   end
 
   def new

@@ -14,10 +14,9 @@
 
 <h2>Sketches</h2>
 
-<div class=sketch>
-  <ul>
-    <% @sketches.each do |sketch| %>
-      <%= image_tag sketch.image%>
-    <% end %>
-  </ul>
+<div class="sketch">
+  <% @sketch_ratings.each do |sketch| %> 
+    <%= image_tag sketch.image%>
+    <p>Rating: <%= sketch.average_rating %></p>
+  <% end %>
 </div>
