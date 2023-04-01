@@ -1,15 +1,92 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+html, body, p {
+    margin: 15px 30px;
+  }
+    
+  body {
+    background-color: #fefdfa;
+    font-family: 'Poppins', sans-serif;
+  }
+    
+  h1 {
+    font-family: 'Mansalva', cursive;
+    font-size: 60px;
+  }
+  
+  h3 {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  header {
+    text-align: center;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-left li {
+    display: inline-block;
+  }
+  
+  .nav-right li {
+    display: inline-block;
+  }
+  
+  .plus img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .sketch img {
+    width: 30%;
+    height: auto;
+  }
+  
+  .sketches {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .sketches a {
+    width: 33.33%;
+  }
+  
+  .sketches img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    padding: 10px;
+  }
+  
+  .vote-button {
+    width: 100px;
+    height: auto;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .vote-button img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .vote-button.voted {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .voted-button img {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .challenge-list ul li {
+    display: block;
+  }
+  

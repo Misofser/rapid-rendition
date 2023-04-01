@@ -28,12 +28,26 @@
       <%= image_tag("vote-for.png", alt: "Vote for") %>
     <% end %>
   <% end %>
-
-  <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
-    <%= form.hidden_field :value, value: -1 %>
-    <%= form.submit "-" %>
-  <% end %>
 </div>
+
+<script>
+  const button = document.querySelector('.vote-button');
+  const img = button.querySelector('img');
+  const hasVoted = localStorage.getItem('hasVoted');
+  if (hasVoted) {
+    button.classList.add('voted');
+    img.classList.add('voted');
+  }
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (hasVoted) {
+      return;
+    }
+    button.classList.add('voted');
+    img.classList.add('voted');
+    localStorage.setItem('hasVoted', true);
+  });
+</script>
 
 <% if flash[:error] %>
   <div class="alert alert-danger">
