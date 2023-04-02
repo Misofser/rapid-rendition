@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   root "sketches#index"
   
   resources :sketches do
-    resources :votes
+    resources :votes do
+      member do
+        delete :destroy
+      end
+    end
   end
   
   resources :challenges

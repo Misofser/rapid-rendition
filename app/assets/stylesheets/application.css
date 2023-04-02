@@ -78,12 +78,10 @@ html, body, p {
   
   .vote-button.voted {
     opacity: 0.5;
-    pointer-events: none;
   }
   
   .voted-button img {
     opacity: 0.5;
-    pointer-events: none;
   }
   
   .challenge-list ul li {

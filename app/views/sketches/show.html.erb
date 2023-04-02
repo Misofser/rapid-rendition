@@ -22,32 +22,23 @@
 
 <div>
   <h2>Votes</h2>
-  <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
-    <%= form.hidden_field :value, value: 1 %>
-    <%= button_tag(type: "submit", class: "vote-button") do %>
-      <%= image_tag("vote-for.png", alt: "Vote for") %>
+  <% if @voted %>
+    <%= form_with(model: [@sketch, Vote.find_by(user: current_user, sketch: @sketch)], method: :delete, local: true) do |form| %>
+      <%= button_tag(type: "submit", class: "vote-button voted") do %>
+        <%= image_tag("vote-for.png", alt: "Vote for", class: "voted") %>
+        <span>Remove Vote</span>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
+      <%= form.hidden_field :value, value: 1 %>
+      <%= button_tag(type: "submit", class: "vote-button") do %>
+        <%= image_tag("vote-for.png", alt: "Vote for") %>
+        <span>Vote</span>
+      <% end %>
     <% end %>
   <% end %>
 </div>
-
-<script>
-  const button = document.querySelector('.vote-button');
-  const img = button.querySelector('img');
-  const hasVoted = localStorage.getItem('hasVoted');
-  if (hasVoted) {
-    button.classList.add('voted');
-    img.classList.add('voted');
-  }
-  button.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (hasVoted) {
-      return;
-    }
-    button.classList.add('voted');
-    img.classList.add('voted');
-    localStorage.setItem('hasVoted', true);
-  });
-</script>
 
 <% if flash[:error] %>
   <div class="alert alert-danger">
