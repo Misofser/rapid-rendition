@@ -5,7 +5,7 @@ class SketchesController < ApplicationController
   before_action -> { authorize_user (@sketch) }, only: [:edit, :update, :destroy]
 
   def index
-    @sketches = Sketch.all
+    @sketches = Sketch.all.order("RANDOM()")
   end
 
   def show
