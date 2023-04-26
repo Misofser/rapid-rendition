@@ -7,6 +7,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = Challenge.all
+    @random_sketches = Sketch.all.sample(@challenges.length).index_by(&:challenge_id)
   end
 
   def show

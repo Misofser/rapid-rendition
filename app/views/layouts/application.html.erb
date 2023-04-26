@@ -8,34 +8,48 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
   </head>
+  
+  <header>
+    <nav class="navbar"> 
+      <div class="nav-left">
+        <div class="nav-block">
+          <ul> 
+            <li class="<%= current_page(root_path) %>"><%= link_to "Home", root_path %></li>
+            <li class="<%= current_page(challenges_path) %>"><%= link_to "Challenges", challenges_path %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="main-information"> 
+        <h1>Rapid-rendition</h1>  
+      </div>
+      
+      <div class="nav-right">
+        <div class="nav-block">
+          <% if current_user %> 
+            <ul> 
+              <li><%= current_user.email %></li> 
+              <li class="<%= current_page(logout_path) %>"><%= link_to "Log out", logout_path, method: "delete" %></li>
+            </ul> 
+          <% else %> 
+            <ul> 
+              <li class="<%= current_page(login_path) %>"><%= link_to "Login", login_path %></li> 
+              <li class="<%= current_page(signup_path) %>"><%= link_to "Signup", signup_path %></li> 
+            </ul> 
+          <% end %>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <body>
-    <nav class="navbar"> 
-
-      <div class="nav-left">
-        <ul> 
-          <li><%= link_to "Home", root_path %></li> 
-          <li><%= link_to "Challenges", challenges_path %></li>
-        </ul>
-      </div>
-
-      <div class="nav-right">
-        <% if current_user %> 
-          <ul> 
-            <li><%= current_user.email %></li> 
-            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-          </ul> 
-        <% else %> 
-          <ul> 
-            <li><%= link_to "Login", login_path %></li> 
-            <li><%= link_to "Signup", signup_path %></li> 
-          </ul> 
-        <% end %>
-      </div>
-
-    </nav>
-
     <%= yield %>
   </body>
 
