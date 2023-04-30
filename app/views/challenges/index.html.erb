@@ -1,29 +1,27 @@
-<main>
-  <h1>challenges</h1>
+<h1>challenges</h1>
 
-  <div class="challenge-list">
-    <ul>
-      <% @challenges.each do |challenge| %>
-        <li>
-          <div class="challenge-title">
-            <a href="<%= challenge_path(challenge) %>">
-              <%= challenge.title %>
-            </a>
-          </div>
-          <% random_sketch = @random_sketches[challenge.id] %>
-          <% if random_sketch %>
-            <%= image_tag random_sketch.image %>
-          <% else %>
-             <%= image_tag "default-image.jpg" %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<div class="challenge-list">
+  <ul>
+    <% @challenges.each do |challenge| %>
+      <li>
+        <div class="challenge-title">
+          <a href="<%= challenge_path(challenge) %>">
+            <%= challenge.title %>            
+          </a>
+        </div>
+        <% random_sketch = @random_sketches[challenge.id] %>
+        <% if random_sketch %>
+          <%= image_tag random_sketch.image %>
+        <% else %>
+          <%= image_tag "default-image.jpg" %>
+        <% end %>
+      </li>
+    <% end %>   
+  </ul>
+</div>
 
-  <% if current_user && current_user.admin? %> 
-    <p> 
-      <%= link_to "New Challenge", new_challenge_path %>
-    </p> 
-  <% end %>
-</main>
+<% if current_user && current_user.admin? %> 
+  <p> 
+    <%= link_to "New Challenge", new_challenge_path %>
+  </p> 
+<% end %>

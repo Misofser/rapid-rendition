@@ -1,24 +1,22 @@
-<main>
-  <h1><%= @challenge.title %></h1>
+<h1><%= @challenge.title %></h1>
 
-  <p><%= @challenge.description %></p>
+<p><%= @challenge.description %></p>
 
-  <% if @challenge.user == current_user %>
-    <ul>
-      <li><%= link_to "Edit", edit_challenge_path(@challenge) %></li>
-      <li><%= link_to "Destroy", challenge_path(@challenge), data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
-      } %></li>
-    </ul>
-  <% end %>
+<% if @challenge.user == current_user %>
+  <ul>
+    <li><%= link_to "Edit", edit_challenge_path(@challenge) %></li>
+    <li><%= link_to "Destroy", challenge_path(@challenge), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+    } %></li>
+  </ul>
+<% end %>
 
   <h2>Sketches</h2>
 
-  <div class="sketch">
-    <% @sketch_ratings.each do |sketch| %> 
-      <%= image_tag sketch.image%>
-      <p>Rating: <%= sketch.average_rating %></p>
-    <% end %>
-  </div>
-</main>
+<div class="sketch">
+  <% @sketch_ratings.each do |sketch| %> 
+    <%= image_tag sketch.image%>
+    <p>Rating: <%= sketch.average_rating %></p>
+  <% end %>
+</div>

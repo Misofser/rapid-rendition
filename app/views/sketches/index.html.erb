@@ -1,26 +1,22 @@
-<main>
-  
-  <div class="appeal">
-    <h2>Participate in our weekly sketch contest, challenge your artistic skills, and let the community vote for their favorite piece!<h2>
-  </div>
+<div class="appeal">
+  <h2>Participate in our weekly sketch contest, challenge your artistic skills, and let the community vote for their favorite piece!<h2>
+</div>
 
-  <h3>
-    <%= link_to "New Sketch", new_sketch_path %>
-  </h3>
+<h3>
+  <%= link_to "New Sketch", new_sketch_path %>
+</h3>
 
-  <div class="sketches">   
-    <% @sketches.each do |sketch| %>
-      <% if sketch.image.present? %>
-        <a href="/sketches/<%= sketch.id %>">
-          <%= image_tag sketch.image %>
-        </a>
-      <% else %>
-        <a href="/sketches/<%= sketch.id %>">
-          Image not found for sketch id: <%= sketch.id %>
-        </a>
-      <% end %>
+<div class="sketches">   
+  <% @sketches.each do |sketch| %>
+    <% if sketch.image.present? %>
+      <a href="/sketches/<%= sketch.id %>">
+        <%= image_tag sketch.image %>
+      </a>
+    <% else %>
+      <a href="/sketches/<%= sketch.id %>">
+        Image not found for sketch id: <%= sketch.id %>
+      </a>
     <% end %>
-  </div>
-
-</main>
+  <% end %>
+</div>
   
