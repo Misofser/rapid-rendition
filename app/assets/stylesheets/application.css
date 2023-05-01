@@ -1,8 +1,3 @@
-*{
-  margin: 0;
-  padding: 0; 
-}
-
 body {
   background-color: #fefdfa;
   font-family: 'Poppins', sans-serif;
@@ -164,23 +159,39 @@ h2 {
   .voted-button img {
     opacity: 0.5;
   }
-  
-  .challenge-list {
-    display: inline-block;
-    text-align: left;
-    width: 100%;
-    margin: 10px;
+
+  .challenge-list ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
   }
   
-  .challenge-title {
-    display: block;
-    font-size: 18px;
-    cursor: pointer;
+  .challenge-list li {
+    width: 33.33%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .challenge-sketch {
+    position: relative;
+    text-align: center;
   }
 
   .challenge-list img {
-    width: 33.33%;
+    max-width: 100%;
+    height: auto;
     display: block;
-    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
+
+.challenge-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
