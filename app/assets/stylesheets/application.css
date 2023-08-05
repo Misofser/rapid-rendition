@@ -35,6 +35,11 @@ h3 {
   margin: 0;
 }
 
+.main-information a {
+  color: #2b2b2b; /* Set the desired color for the link */
+  text-decoration: none; /* Remove the underline */
+}
+
 /* Style for the left side of the navbar */
 .nav-left ul {
   display: flex;
