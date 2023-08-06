@@ -1,10 +1,14 @@
-<div class="appeal">
-  <h2>Participate in our weekly sketch contest, challenge your artistic skills, and let the community vote for their favorite piece!<h2>
-</div>
+<div class="background-section">
+  <div class="appeal">
+    <h2>Participate in our weekly sketch contests, 
+    challenge your artistic skills, 
+    and let the community vote for their favorite piece!<h2>
+  </div>
 
-<h3>
-  <%= link_to "New Sketch", new_sketch_path %>
-</h3>
+  <h3 class="new-sketch-button">
+    <%= link_to "New Sketch", new_sketch_path %>
+  </h3>
+</div>
 
 <div class="sketches">   
   <% @sketches.each do |sketch| %>

@@ -1,9 +1,20 @@
 body {
+  margin: 0;
   background-color: #fefdfa;
   font-family: 'Poppins', sans-serif;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 main {
+  margin-top: 100px;
   padding: 0 40px;
 }
 
@@ -66,7 +77,7 @@ h3 {
 }
 
 .nav-left ul li a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Style for the right side of the navbar */
@@ -95,7 +106,7 @@ h3 {
 }
 
 .nav-right ul li a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Style for the login and signup buttons */
@@ -107,14 +118,67 @@ h3 {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .nav-block ul li:last-child a:hover {
   background-color: #66818c;
   color: #fff;
   transition: background-color 0.3s ease-out, color 0.3s ease-out;
+  text-decoration: none;
 }
-  
+
+.appeal {
+  padding: 0 120px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.appeal h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #434343;
+}
+
+.new-sketch-button a {
+  text-decoration: none;
+  color: #000000; 
+}
+
+.new-sketch-button {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #9ddddb;
+  color: #000000;
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%;
+  font-size: 44px;
+  font-family: 'Mansalva', cursive;
+  transition: background-color 0.3s ease-out, color 0.3s ease-out;
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.new-sketch-button:hover {
+  background-color:#66818c
+}
+
+.background-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+  background-image: url('/assets/background-3.jpg');
+  background-size: 100% auto;
+  background-position: calc(top - 50px);
+  background-repeat: no-repeat;
+}
+
 .plus img {
   width: 100px;
   height: 100px;
