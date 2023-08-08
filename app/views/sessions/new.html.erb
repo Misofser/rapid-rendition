@@ -3,9 +3,15 @@
 		<div class="form">
 			<h1>log in</h1>
 			<%= form_for(:session, url: login_path) do |f| %> 
-				<%= f.email_field :email, :placeholder => "Email" %> 
-				<%= f.password_field :password, :placeholder => "Password" %> 
-				<%= f.submit "Log in", class: "btn-submit" %>
+				<div class="form-field">
+					<%= f.email_field :email, :placeholder => "Email", class: "form-input" %>
+				</div>
+				<div class="form-field">
+					<%= f.password_field :password, :placeholder => "Password", class: "form-input" %>
+				</div>
+				<div class="form-field">
+					<%= f.submit "Log in", class: "btn-submit" %>
+				</div>
 			<% end %>
 		</div>
 	</div>
