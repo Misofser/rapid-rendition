@@ -47,8 +47,8 @@ h3 {
 }
 
 .main-information a {
-  color: #2b2b2b; /* Set the desired color for the link */
-  text-decoration: none; /* Remove the underline */
+  color: #2b2b2b;
+  text-decoration: none; 
 }
 
 /* Style for the left side of the navbar */
@@ -179,14 +179,76 @@ h3 {
   background-repeat: no-repeat;
 }
 
-.plus img {
-  width: 100px;
-  height: 100px;
+.sketch-container {
+  display: flex;
+  height: calc(100vh - 100px);
+  overflow: hidden;
 }
-  
+
+.sketch {
+  flex: 1; 
+  position: relative;
+  overflow: hidden;
+}
+
 .sketch img {
-  width: 30%;
-  height: auto;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.sketch-info {
+  flex: 1;
+  padding: 20px;
+}
+
+.sketch-info h1 {
+  font-size: 30px;
+  color: #2b2b2b;
+}
+
+.sketch-info a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.sketch-info a:hover {
+  color: #9ddddb;
+}
+
+.sketch-edit-button{
+  list-style: none;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #9ddddb;
+  border-radius: 20px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-out;
+  color: #000;
+}
+
+.sketch-edit-button:hover {
+  background-color:#66818c;
+}
+
+.sketch-edit-button a:hover {
+  color: #fff;
+}
+
+.sketch-delete-button {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #9ddddb;
+  border-radius: 20px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-out;
+}
+
+.sketch-delete-button:hover {
+  background-color:#dffffe;
 }
 
 .sketches {
@@ -205,7 +267,7 @@ h3 {
   display: block;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-  
+
 .vote-button {
   width: 100px;
   height: auto;

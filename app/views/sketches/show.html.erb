@@ -1,49 +1,49 @@
-<h1><%= @sketch.challenge.title %></h1>
-
-<div class=sketch>
-  <% if @sketch.image.present? %>
-    <%= image_tag @sketch.image%>
-  <% else %>
-      Image not found for sketch id: <%= @sketch.id %>
-  <% end %>
-</div>
-
-<% if @sketch.user == current_user %>
-  <ul>
-    <li><%= link_to "Edit", edit_sketch_path(@sketch) %></li>
-    <li><%= link_to "Destroy", sketch_path(@sketch), data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    } %></li>
-  </ul>
-<% end %>
-
-<div>
-  <h2>Votes</h2>
-  <% if @voted %>
-    <%= form_with(model: [@sketch, Vote.find_by(user: current_user, sketch: @sketch)], method: :delete, local: true) do |form| %>
-      <%= button_tag(type: "submit", class: "vote-button voted") do %>
-        <%= image_tag("vote-for.png", alt: "Vote for", class: "voted") %>
-        <span>Remove Vote</span>
-      <% end %>
+<div class="sketch-container">
+  <div class=sketch>
+    <% if @sketch.image.present? %>
+      <%= image_tag @sketch.image%>
+    <% else %>
+        Image not found for sketch id: <%= @sketch.id %>
     <% end %>
-  <% else %>
-    <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
-      <%= form.hidden_field :value, value: 1 %>
-      <%= button_tag(type: "submit", class: "vote-button") do %>
-        <%= image_tag("vote-for.png", alt: "Vote for") %>
-        <span>Vote</span>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
+  </div>
 
-<% if flash[:error] %>
-  <div class="alert alert-danger">
-    <%= flash[:error] %>
+  <div class="sketch-info">
+
+    <h1>Challenge: <%= link_to @sketch.challenge.title, challenge_path(@sketch.challenge) %></h1>
+    <p>Author: <%= @sketch.user.full_name %></p>
+    <p>Place in current competition: <%= @sketch.position_in_rankings %></p>
+
+    <% if @sketch.user == current_user %>
+        <ul>
+        <div class="sketch-edit-button">  
+          <li><%= link_to "Edit", edit_sketch_path(@sketch) %></li>
+        </div>
+        <div class="sketch-delete-button">
+          <li><%= link_to "Delete", sketch_path(@sketch), data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        } %></li>
+        </div>
+      </ul>
+    <% end %>
+
+    <div>
+      <% if @voted %>
+        <%= form_with(model: [@sketch, Vote.find_by(user: current_user, sketch: @sketch)], method: :delete, local: true) do |form| %>
+          <%= button_tag(type: "submit", class: "vote-button voted") do %>
+            <%= image_tag("vote-for.png", alt: "Vote for", class: "voted") %>
+            <span>Remove Vote</span>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
+          <%= form.hidden_field :value, value: 1 %>
+          <%= button_tag(type: "submit", class: "vote-button") do %>
+            <%= image_tag("vote-for.png", alt: "Vote for") %>
+            <span>Vote</span>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-<% elsif flash[:success] %>
-  <div class="alert alert-success">
-    <%= flash[:success] %>
-  </div>
-<% end %>
+</div>
