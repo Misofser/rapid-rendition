@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: rapid-rendition
+    build: .
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:3000:3000
+    environment:
+      RAILS_ENV: development
+    volumes:
+      - db:/app/db
+      - storage:/app/storage
+
+volumes:
+  db:
+    driver: local
+  storage:
+    driver: local
