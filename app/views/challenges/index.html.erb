@@ -1,20 +1,31 @@
-<h1>challenges</h1>
+<div class="challenges-page-title">
+  <h1>Challenges</h1>
+  <h2>Welcome to our sketching challenges! 
+  Here, you can participate by selecting a challenge and creating a sketch for it.</h2>
+</div>
 
 <div class="challenge-list">
   <ul>
     <% @challenges.each do |challenge| %>
-      <li>
-        <a href="<%= challenge_path(challenge) %>">
-          <div class="challenge-sketch">
-            <div class="challenge-title">
-              <%= challenge.title %>            
+      <li class="challenge-item">
+        <a href="<%= challenge_path(challenge) %>" class="challenge-link">
+          <div class="challenge-content">
+            <div class="challenge-image">
+              <% random_sketch = @random_sketches[challenge.id] %>
+              <div class="image-container">
+                <% if random_sketch %>
+                  <%= image_tag random_sketch.image %>
+                <% else %>
+                  <%= image_tag "default-image.jpg" %>
+                <% end %>
+              </div>
             </div>
-            <% random_sketch = @random_sketches[challenge.id] %>
-            <% if random_sketch %>
-              <%= image_tag random_sketch.image %>
-            <% else %>
-              <%= image_tag "default-image.jpg" %>
-            <% end %>
+            <div class="challenge-details">
+              <h2><%= link_to challenge.title, challenge_path(challenge) %></h2>
+              <div class="challenge-description">
+              <p><%= challenge.description %></p>
+              <%= link_to "See Details", challenge_path(challenge), class: "details-button" %>
+            </div>
           </div>
         </a>
       </li>
