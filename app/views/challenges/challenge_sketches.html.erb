@@ -1,0 +1,11 @@
+<h1>Vote for Sketches You Like</h1>
+
+<h1>Sketches for Challenge: <%= @challenge.title %></h1>
+
+<div class="sketches-for-voting">
+  <% @sketches.each do |sketch| %>
+    <div>
+      <%= image_tag sketch.image %>
+    </div>
+  <% end %>
+</div>

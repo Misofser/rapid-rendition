@@ -2,6 +2,8 @@
 
 <p><%= @challenge.description %></p>
 
+<h2><%= link_to "Vote", challenge_sketches_challenge_path(@challenge) %></h2>
+
 <% if @challenge.user == current_user %>
   <ul>
     <li><%= link_to "Edit", edit_challenge_path(@challenge) %></li>
@@ -11,12 +13,3 @@
     } %></li>
   </ul>
 <% end %>
-
-  <h2>Sketches</h2>
-
-<div class="sketch">
-  <% @sketch_ratings.each do |sketch| %> 
-    <%= image_tag sketch.image%>
-    <p>Rating: <%= sketch.average_rating %></p>
-  <% end %>
-</div>

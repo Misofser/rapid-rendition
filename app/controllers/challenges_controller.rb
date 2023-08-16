@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
   
   before_action :require_user, only: [:new, :edit, :update, :destroy]
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :challenge_sketches]
   before_action -> { authorize_user (@challenge) }, only: [:edit, :update, :destroy]
   before_action :require_admin, only: [:new, :edit, :update, :destroy]
 
@@ -26,6 +26,10 @@ class ChallengesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def challenge_sketches
+    @sketches = @challenge.sketches
   end
   
   def edit
