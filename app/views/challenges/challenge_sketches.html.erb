@@ -4,8 +4,29 @@
 
 <div class="sketches-for-voting">
   <% @sketches.each do |sketch| %>
+    
     <div>
       <%= image_tag sketch.image %>
     </div>
+
+    <div>
+      <% if sketch.votes.exists?(user: current_user) %>
+      <%= form_with(model: [sketch, sketch.votes.find_by(user: current_user)], method: :delete, local: true) do |form| %>
+          <%= button_tag(type: "submit", class: "vote-button voted") do %>
+            <%= image_tag("vote-for.png", alt: "Vote for", class: "voted") %>
+            <span>Remove Vote</span>
+          <% end %>
+        <% end %>
+      <% else %>
+      <%= form_with(model: [sketch, sketch.votes.build(user: current_user)], local: true) do |form| %>
+          <%= form.hidden_field :value, value: 1 %>
+          <%= button_tag(type: "submit", class: "vote-button") do %>
+            <%= image_tag("vote-for.png", alt: "Vote for") %>
+            <span>Vote</span>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
   <% end %>
 </div>
