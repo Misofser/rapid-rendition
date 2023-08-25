@@ -27,23 +27,5 @@
       </ul>
     <% end %>
 
-    <div>
-      <% if @voted %>
-        <%= form_with(model: [@sketch, Vote.find_by(user: current_user, sketch: @sketch)], method: :delete, local: true) do |form| %>
-          <%= button_tag(type: "submit", class: "vote-button voted") do %>
-            <%= image_tag("vote-for.png", alt: "Vote for", class: "voted") %>
-            <span>Remove Vote</span>
-          <% end %>
-        <% end %>
-      <% else %>
-        <%= form_with(model: [@sketch, @sketch.votes.build], local: true) do |form| %>
-          <%= form.hidden_field :value, value: 1 %>
-          <%= button_tag(type: "submit", class: "vote-button") do %>
-            <%= image_tag("vote-for.png", alt: "Vote for") %>
-            <span>Vote</span>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
   </div>
 </div>
