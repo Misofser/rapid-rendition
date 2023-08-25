@@ -8,31 +8,24 @@ class VotesController < ApplicationController
   def show
     @vote = Vote.find(params[:id])
   end
-
+  
   def create
-    @vote = @sketch.votes.build(vote_params)
-    @vote.user = current_user
-
     if Vote.exists?(user: current_user, sketch: @sketch)
-      flash[:error] = "You have already voted on this sketch"
-      redirect_to @sketch
+      render status: :unprocessable_entity, body: "Already voted"
+    elsif @sketch.votes.create(user: current_user)
+      render status: :ok, body: "Vote added successfully"
     else
-      if @vote.save
-        flash[:success] = "Vote created successfully!"
-        redirect_to sketch_path(@vote.sketch)
-      else
-        render 'sketches/show'
-      end
+      render status: :unprocessable_entity, body: "Error adding vote"
     end
   end
-  
+
   def destroy
-    if @vote.destroy
-      flash[:success] = "Vote removed successfully!"
+    vote = @sketch.votes.find_by(user: current_user)
+    if vote && vote.destroy
+      render status: :ok, body: "Vote removed successfully"
     else
-      flash[:error] = "Failed to remove vote"
+      render status: :unprocessable_entity, body: "Error removing vote"
     end
-    redirect_to sketch_path(@sketch)
   end
 
   private
