@@ -472,7 +472,7 @@ display: flex;
   border-radius: 30px;
   text-decoration: none;
   transition: background-color 0.3s ease-out;
-  font-size: 26px;
+  font-size: 24px;
 }
 
 .votes-challenge-button {
@@ -482,7 +482,6 @@ display: flex;
 
 .votes-challenge-button:hover {
   background-color: #9ddddb; 
-  /* color: #000;  */
 }
 
 .participate-challenge-button {
@@ -553,4 +552,81 @@ display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column; 
+}
+
+/* Styles for the new sketch form container */
+.new-sketch-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for form fields */
+.new-sketch-form label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.new-sketch-form input[type="file"],
+.new-sketch-form select {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.new-sketch-form input[type="file"] {
+  padding: 8px 0;
+}
+
+.new-sketch-form select {
+  padding: 10px;
+}
+
+/* Styles for the submit button */
+.new-sketch-form input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #66818c;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-sketch-form input[type="submit"]:hover {
+  background-color: #9ddddb;
+}
+
+.image-preview {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#image-preview {
+  max-width: 100%;
+  max-height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-sketch-form h1 {
+  font-size: 30px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 100px);
 }
