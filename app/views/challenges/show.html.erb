@@ -1,8 +1,29 @@
-<h1><%= @challenge.title %></h1>
+<div class="challenges-page-title">
+  <h1><%= @challenge.title %></h1>
+  
+  <div class="challenge-voting-page">
+    <h2><%= link_to "Vote", challenge_sketches_challenge_path(@challenge), class: "votes-challenge-button" %></h2>
+    <h2><%= link_to "Participate", new_sketch_path, class: "participate-challenge-button" %></h2>
+  </div>
 
-<p><%= @challenge.description %></p>
+  <a href="#description-anchor" class="scroll-to-description">
+    <div class="description-label">
+      Description
+      <span class="arrow-down"></span>
+    </div>
+  </a>
+</div>
 
-<h2><%= link_to "Vote", challenge_sketches_challenge_path(@challenge) %></h2>
+<div class="details-container">
+  <section class="details-section">
+    <a id="description-anchor"></a>
+    <div class="competition-details">
+      <h3>Description</h3>
+      <div class="header-line"></div>
+      <p><%= @challenge.description %></p>
+    </div>
+  </section>
+</div>
 
 <% if @challenge.user == current_user %>
   <ul>
@@ -13,3 +34,14 @@
     } %></li>
   </ul>
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var descriptionLabel = document.querySelector('.scroll-to-description');
+
+    descriptionLabel.addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelector('#description-anchor').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
