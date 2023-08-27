@@ -630,3 +630,51 @@ display: flex;
   justify-content: center;
   height: calc(100vh - 100px);
 }
+
+.sketches-for-voting {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.challenge-sketches-container {
+  width: calc(33.33% - 20px);
+  position: relative;
+  margin-bottom: 20px; /* Add spacing between rows */
+}
+
+.challenge-sketches-container img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.sketch-vote {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.vote-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 36vh;
+}
+
+.vote-section h1 {
+  font-size: 74px;
+  color: #66818c;
+  margin: 0;
+  max-width: 900px;
+  margin-top: 20px;
+}
+
+.vote-section p {
+  font-size: 18px;
+  color: #66818c;
+}

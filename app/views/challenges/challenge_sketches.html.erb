@@ -1,11 +1,13 @@
-<h1>Vote for Sketches You Like</h1>
-
-<h1>Sketches for Challenge: <%= @challenge.title %></h1>
+<div class="vote-section">
+  <h1>Vote for Sketches You Like</h1>
+  <p>Sketches for Challenge: "<%= @challenge.title %>"</p>
+  <div class="header-line"></div>
+</div>
 
 <turbo-frame id="sketch-votes-frame">
   <div class="sketches-for-voting">
     <% @sketches.each do |sketch| %>
-      <div class="sketch-container" data-sketch-id="<%= sketch.id %>">
+      <div class="challenge-sketches-container" data-sketch-id="<%= sketch.id %>">
         <%= image_tag sketch.image %>
         <div class="sketch-vote">
           <%= render partial: "votes/vote_button", locals: { sketch: sketch } %>
