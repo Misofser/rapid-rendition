@@ -9,9 +9,9 @@
     <%= link_to "New Sketch", new_sketch_path %>
   </h3>
 </div>
-
+  
 <div class="sketches">   
-  <% @sketches.each do |sketch| %>
+  <% @sketches.take(9).each do |sketch| %>
     <% if sketch.image.present? %>
       <a href="/sketches/<%= sketch.id %>">
         <%= image_tag sketch.image %>
@@ -23,4 +23,3 @@
     <% end %>
   <% end %>
 </div>
-  
