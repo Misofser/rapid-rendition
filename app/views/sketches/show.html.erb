@@ -13,19 +13,21 @@
     <p>Author: <%= @sketch.user.full_name %></p>
     <p>Place in current competition: <%= @sketch.position_in_rankings %></p>
 
-    <% if @sketch.user == current_user %>
-        <ul>
-        <div class="sketch-edit-button">  
-          <li><%= link_to "Edit", edit_sketch_path(@sketch) %></li>
-        </div>
-        <div class="sketch-delete-button">
-          <li><%= link_to "Delete", sketch_path(@sketch), data: {
-                          turbo_method: :delete,
-                          turbo_confirm: "Are you sure?"
-                        } %></li>
-        </div>
-      </ul>
-    <% end %>
+    <div class="sketch-buttons">
+      <% if @sketch.user == current_user %>
+          <ul>
+          <div class="sketch-edit-button">  
+            <li><%= link_to "Edit", edit_sketch_path(@sketch) %></li>
+          </div>
+          <div class="sketch-delete-button">
+            <li><%= link_to "Delete", sketch_path(@sketch), data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                          } %></li>
+          </div>
+        </ul>
+      <% end %>
+    </div>
 
   </div>
 </div>

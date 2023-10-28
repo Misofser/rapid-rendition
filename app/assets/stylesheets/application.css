@@ -170,6 +170,12 @@ h3 {
   padding: 20px;
 }
 
+.sketch-info ul {
+  margin: 0; 
+  padding: 0;
+  list-style: none;
+}
+
 .sketch-info h1 {
   font-size: 30px;
   color: #2b2b2b;
@@ -189,8 +195,9 @@ h3 {
   display: inline-block;
   padding: 10px 20px;
   background-color: #9ddddb;
-  border-radius: 20px;
+  border-radius: 25px;
   margin-top: 10px;
+  margin-right: 10px;
   transition: background-color 0.3s ease-out;
   color: #000;
 }
@@ -210,7 +217,7 @@ h3 {
   display: inline-block;
   padding: 10px 20px;
   border: 2px solid #9ddddb;
-  border-radius: 20px;
+  border-radius: 25px;
   margin-top: 10px;
   transition: background-color 0.3s ease-out;
 }
@@ -837,5 +844,37 @@ display: flex;
     max-height: 100%;
     object-fit: contain;
   }
-  
+
+  .sketch-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sketch {
+    width: 100%;
+  }
+
+  .sketch-info {
+    padding: 10px;
+  }
+
+  .sketch-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .sketch-edit-button,
+  .sketch-delete-button {
+    font-size: 16px;
+    flex: 1;
+    padding: 12px 24px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .sketch-info h1 {
+    font-size: 24px; 
+  }  
+
 }
