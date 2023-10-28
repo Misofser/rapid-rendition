@@ -335,7 +335,6 @@ h3 {
 .challenge-details {
   flex: 2;
   padding-left: 60px;
-  padding-left: 60px;
 }
 
 .challenge-details h2 {
@@ -357,17 +356,17 @@ h3 {
 }
 
 .details-button {
+  font-weight: 400;
   display: inline-block;
-  background-color: #9ddddb;
-  color: #000;
-  padding: 5px 10px;
-  border-radius: 5px;
+  background-color:#9ddddb;
+  padding: 10px 20px;
+  border-radius: 25px;
   text-decoration: none;
   transition: background-color 0.3s ease-out;
 }
 
 .details-button:hover {
-  background-color: #66818c;
+  background-color:#66818c; 
 }
 
 .login {
@@ -783,4 +782,60 @@ display: flex;
     font-size: 14px;
     color: #434343;
   }
+
+  .challenges-page-title {
+    min-height: auto;
+    background-image: none;
+  }
+  
+  .challenges-page-title h1 {
+    font-size: 50px;
+  }
+  
+  .challenges-page-title h2 {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .challenge-content {
+    flex-direction: column; 
+    padding: 10px;
+  }
+
+  .challenge-details {
+    padding: 0;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .challenge-details h2 {
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+
+  .challenge-details p {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .details-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-container img {
+    max-width: 100%; 
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
 }
