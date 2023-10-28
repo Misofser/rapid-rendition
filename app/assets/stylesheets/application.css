@@ -227,7 +227,7 @@ h3 {
 }
 
 .sketches {
-  column-count: 3; /* Center the sketch blocks horizontally */
+  column-count: 3;
 }
   
 .sketches a {
@@ -876,5 +876,21 @@ display: flex;
   .sketch-info h1 {
     font-size: 24px; 
   }  
+  
+  .votes-challenge-button, .participate-challenge-button {
+    margin: 5px 5px;
+  }
 
+  .scroll-to-description {
+    display: none;
+  }
+
+  .competition-details h3 {
+    font-size: 24px;
+    color:#434343;
+  }
+  .competition-details p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
 }
