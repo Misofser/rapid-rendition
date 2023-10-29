@@ -748,18 +748,18 @@ display: flex;
 	}
 
   .background-section {
-    height: 28vh;
-    background-size: 100% auto;
-    background-position: top center;
-    background-repeat: no-repeat;
+    height: auto;
     justify-content: flex-start;
+    background-image: none;
   }
 
   .new-sketch-button {
     width: 100px;
     height: 100px;
-    font-size: 24px;
+    font-size: 22px;
     margin: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   .sketches {
@@ -780,13 +780,13 @@ display: flex;
   .appeal {
     padding: 0 10px;
     text-align: center;
-    padding-top: 20px;
     margin-bottom: 10px; 
   }
   
   .appeal h2 {
+    padding-top: 40px;
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
     color: #434343;
   }
 
