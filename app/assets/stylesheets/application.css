@@ -796,10 +796,12 @@ display: flex;
   }
   
   .challenges-page-title h1 {
+    margin-top: 20px;
     font-size: 50px;
   }
   
   .challenges-page-title h2 {
+    margin-top: 20px;
     font-size: 16px;
     max-width: 100%;
   }
@@ -893,4 +895,25 @@ display: flex;
     font-size: 18px;
     line-height: 1.5;
   }
+
+  .sketches-for-voting {
+    display: block; 
+  }
+
+  .challenge-sketches-container {
+    width: 100%;
+  }
+  
+  .vote-section {
+    min-height: auto;
+  }
+
+  .vote-section h1 {
+    font-size: 36px;
+  }
+
+  .vote-section p {
+    font-size: 1px;
+  }
+
 }
