@@ -1,2 +1,7 @@
 <h1>User Profile</h1>
 <p>Welcome, <%= current_user.full_name %></p>
+<%= link_to "Delete Account", user_path(@user), data: {
+  turbo_method: :delete,
+  turbo_confirm: "If you delete your account, all the sketches you have uploaded will also be deleted. Are you sure you want to delete your account?"
+} %>
+
