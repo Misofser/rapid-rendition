@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 
     has_secure_password
-    has_many :sketches
-    has_many :votes
+    has_many :sketches, :dependent => :destroy
+    has_many :votes, :dependent => :destroy
     has_many :challenges
 
     def admin? 
