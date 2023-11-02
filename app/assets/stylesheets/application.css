@@ -654,7 +654,7 @@ display: flex;
 }
 
 .burger {
-  display: none; /* Hide by default on larger screens */
+  display: none;
 }
 
 .burger .bar {
@@ -664,6 +664,40 @@ display: flex;
   margin: 4px 0;
 }
 
+#demo-banner {
+  max-width: 90%;
+  overflow: hidden;
+  position: fixed;
+  background-color: #333;
+  color: #fff;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: auto;
+  border-radius: 30px;
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+#close-banner {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 20px;
+}
 
 @media screen and (max-width: 768px) {
   .burger {

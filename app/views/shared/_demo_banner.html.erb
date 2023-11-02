@@ -1,0 +1,28 @@
+<div id="demo-banner">
+  <div class="banner-content">
+    <h1>This site is for demonstration purposes only</h1>
+    <p>THE SOFTWARE IS PROVIDED "AS IS", <strong>WITHOUT WARRANTY OF ANY KIND</strong>, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.</p>
+    <button id="close-banner">Got it, I understand – Continue</button>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('turbo:load', function() {
+        var closeBannerButton = document.getElementById('close-banner');
+        if (closeBannerButton) {
+            closeBannerButton.addEventListener('click', function() {
+            document.cookie = 'demo_banner_seen=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
+            var demoBanner = document.getElementById('demo-banner');
+            if (demoBanner) {
+                demoBanner.style.display = 'none';
+            }
+            });
+        }
+    });
+</script>

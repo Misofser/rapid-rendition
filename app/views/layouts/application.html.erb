@@ -75,6 +75,7 @@
     </script>
 
     <main>
+      <%= render 'shared/demo_banner' if show_demo_banner? %>
       <%= yield %>
     </main>
   </body>
