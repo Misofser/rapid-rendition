@@ -665,20 +665,21 @@ display: flex;
 }
 
 #demo-banner {
-  max-width: 90%;
-  overflow: hidden;
   position: fixed;
-  background-color: #333;
-  color: #fff;
-  margin-top: 20px;
+  bottom: 40px; 
+  right: 40px;
+  background-color: #ffffff;
+  color:#000; 
   padding: 20px;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: auto;
-  border-radius: 30px;
+  border-radius: 10px; 
+  z-index: 1000;
+  width: auto; 
+  max-width: 45%;
+  overflow: hidden; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0.2, 0.2, 0.2, 0.2);
 }
 
 .banner-content {
@@ -691,12 +692,25 @@ display: flex;
 }
 
 #close-banner {
-  background-color: #fff;
-  color: #333;
+  background-color:#66818c;
+  color:#ffffff;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 20px;
   cursor: pointer;
-  margin: 20px;
+  border-radius: 30px;
+  font-size: 18px;
+}
+
+.title-banner {
+  color: #66818c;
+  font-size: 22px;
+  font-family:'Poppins';
+  margin: 0;
+  text-align: center;
+}
+
+.text-banner {
+  font-size: 14px;
 }
 
 @media screen and (max-width: 768px) {
@@ -958,6 +972,27 @@ display: flex;
   .sketch-form-submit {
     display: flex;
     justify-content: flex-end;
+  }
+
+  #demo-banner {
+    bottom: 0px;
+    right: 0px;
+    padding: 14px;
+    max-width: 100%;
+    border-radius: 0px;
+  }
+  
+  .title-banner{
+    font-size: 14px;
+  }
+
+  .text-banner {
+    font-size: 10px;
+  }
+
+  #close-banner {
+    font-size: 14px;
+    padding: 14px 26px;
   }
 
 }
