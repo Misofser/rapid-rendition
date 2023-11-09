@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @sketch_count = @user.sketches.count
   end
 
   def new

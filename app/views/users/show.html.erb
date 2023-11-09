@@ -1,6 +1,26 @@
-<h1>User Profile</h1>
-<p>Welcome, <%= current_user.full_name %></p>
-<%= link_to "Delete Account", user_path(@user), data: {
-  turbo_method: :delete,
-  turbo_confirm: "If you delete your account, all the sketches you have uploaded will also be deleted. Are you sure you want to delete your account?"
-} %>
+<div class="user-welcome">
+  <h1>Welcome, <br><%= current_user.full_name %></h1>
+  
+  <div class="sketch-count">
+    <p>Sketches: <strong><%= @sketch_count %></strong></p>
+  </div>
+
+  <div class="delete-accaunt-button">
+    <%= link_to "Delete Account", user_path(@user), data: {
+      turbo_method: :delete,
+      turbo_confirm: "If you delete your account, all the sketches you have uploaded will also be deleted. Are you sure you want to delete your account?"
+    } %>
+  </div>
+  
+</div>
+
+<h2 class="your-sketches">Your Sketches</h2>
+<div class="sketches-for-voting">
+  <% @user.sketches.each do |sketch| %>
+    <div class="challenge-sketches-container">
+      <%= image_tag sketch.image %>
+      <p class="your-sketch-caption">Challenge: <%= link_to sketch.challenge.title, challenge_path(sketch.challenge) %></p>
+    </div>
+  <% end %>
+</div>
+  

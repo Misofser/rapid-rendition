@@ -528,7 +528,6 @@ display: flex;
   flex-direction: column; 
 }
 
-/* Styles for the new sketch form container */
 .new-sketch-form {
   max-width: 600px;
   margin: 0 auto;
@@ -538,7 +537,6 @@ display: flex;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles for form fields */
 .new-sketch-form label {
   font-size: 16px;
   margin-bottom: 5px;
@@ -711,6 +709,70 @@ display: flex;
 
 .text-banner {
   font-size: 14px;
+}
+
+.user-welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 78vh;
+  background-image: url('/assets/user-background.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  color: #66818c;
+}
+
+.user-welcome h1 {
+  font-size: 76px;
+  margin: 0;
+}
+
+.your-sketches {
+  text-align: center; 
+  margin-top: 40px;
+  font-size: 28px;
+  color: #434343; 
+}
+
+.your-sketch-caption a {
+  text-decoration: none;
+  color:#000;
+}
+
+.your-sketch-caption {
+  font-size: 18px;
+}
+
+.delete-accaunt-button {
+  padding: 10px 20px;
+  margin: 0px 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-out;
+  font-size: 18px;
+  background-color:#2b2b2b;
+  bottom: 60px;
+  right: 60px; 
+  position: absolute;
+}
+
+.delete-accaunt-button a {
+  color:#fefdfa;
+  text-decoration: none;
+}
+
+.delete-accaunt-button:hover {
+  background-color:#9ddddb;
+}
+
+.sketch-count{
+  margin: 0px 10px;
+  border-radius: 30px;
+  font-size: 18px;
+  bottom: 60px; 
+  position: absolute;
 }
 
 @media screen and (max-width: 768px) {
