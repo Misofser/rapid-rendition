@@ -775,6 +775,43 @@ display: flex;
   position: absolute;
 }
 
+footer, footer ul, footer li, footer a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+footer {
+  background-color:rgb(239, 255, 254);
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer ul {
+  display: flex;
+}
+
+.footer li {
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer a:hover {
+  color:#66818c;
+}
+
 @media screen and (max-width: 768px) {
   .burger {
     display: block;
@@ -1085,6 +1122,15 @@ display: flex;
     position: relative;
     bottom: 0;
     right: 0;
+  }
+
+  .footer li {
+    margin: 10px 10px;
+  }
+
+  .footer ul {
+    display: flex;
+    flex-direction: column;
   }
 
 }
