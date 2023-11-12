@@ -11,15 +11,14 @@ Rails.application.routes.draw do
 
   resources :challenges do
     member do
-      get 'challenge_sketches', to: 'challenges#challenge_sketches'
+      get 'challenge_sketches' => 'challenges#challenge_sketches'
     end
   end
 
-  resources :challenges
-  
   resources :users
   get 'signup'  => 'users#new' 
  
+  get 'privacy_policy' => 'static_pages#privacy_policy'
 
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
