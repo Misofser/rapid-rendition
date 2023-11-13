@@ -2,7 +2,6 @@ body {
   margin: 0;
   background-color: #fefdfa;
   font-family: 'Poppins', sans-serif;
-  min-height: 100vh; 
   display: flex;
   flex-direction: column;
 }
@@ -17,6 +16,7 @@ header {
 }
 
 main {
+  min-height: calc(100vh - 100px);
   flex: 1;
   margin-top: 100px;
   padding: 0 40px;
@@ -236,13 +236,13 @@ h3 {
   
 .sketches a {
   padding: 10px;
-  width: 100%; /* Set the width of each sketch to 100% */
-  margin-bottom: 20px; /* Add some space between sketches */
+  width: 100%; 
+  margin-bottom: 20px;
 }
   
 .sketches img {
   width: 100%;
-  height: auto; /* Let the height adjust automatically based on the aspect ratio */
+  height: auto;
   display: block;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -381,7 +381,7 @@ h3 {
 }
 
 .login {
-display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
