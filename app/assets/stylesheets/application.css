@@ -75,9 +75,9 @@ h3 {
 .nav-links ul li a {
   color: #434343;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  margin-right: 20px;
+  padding: 10px 20px;
 }
 
 .nav-links ul li a:hover {
@@ -90,13 +90,6 @@ h3 {
   border-radius: 25px;
   font-size: 14px;
   font-weight: bold;
-  text-decoration: none;
-}
-
-.nav-block ul li:last-child a:hover {
-  background-color: #66818c;
-  color: #fff;
-  transition: background-color 0.3s ease-out, color 0.3s ease-out;
   text-decoration: none;
 }
 
@@ -564,7 +557,6 @@ h3 {
   padding: 10px;
 }
 
-/* Styles for the submit button */
 .new-sketch-form input[type="submit"] {
   padding: 10px 20px;
   background-color: #66818c;
@@ -716,6 +708,7 @@ h3 {
 }
 
 .user-welcome {
+  position: relative; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -749,34 +742,37 @@ h3 {
   font-size: 18px;
 }
 
-.delete-accaunt-button {
+.delete-account-button {
   padding: 10px 20px;
-  margin: 0px 10px;
   border-radius: 30px;
   text-decoration: none;
   transition: background-color 0.3s ease-out;
-  font-size: 18px;
+  font-size: 14px;
   background-color:#2b2b2b;
-  bottom: 60px;
-  right: 60px; 
+  position: relative;
+  text-align: right;
   position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
-.delete-accaunt-button a {
+.delete-account-button a {
   color:#fefdfa;
   text-decoration: none;
 }
 
-.delete-accaunt-button:hover {
+.delete-account-button:hover {
   background-color:#9ddddb;
 }
 
-.sketch-count{
-  margin: 0px 10px;
-  border-radius: 30px;
+.sketch-count {
   font-size: 18px;
-  bottom: 60px; 
   position: absolute;
+  bottom: 20px;
+}
+
+.sketch-count p {
+  margin: 0;
 }
 
 footer, footer ul, footer li, footer a {
