@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_user, only: [:show, :destroy]
+  before_action :current_user, only: [:show, :destroy]
 
   def show
     @user = User.find(params[:id])
