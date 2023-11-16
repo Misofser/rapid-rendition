@@ -2,8 +2,9 @@
   <div class="new-sketch-form">
 
     <h1>New Sketch</h1>
-
-    <%= render "form", sketch: @sketch %>
+    <turbo-frame id="form-frame">
+      <%= render "form", sketch: @sketch %>
+    </turbo-frame>
     <div class="image-preview">
       <img id="image-preview" src="#" alt="Image Preview" />
     </div>
