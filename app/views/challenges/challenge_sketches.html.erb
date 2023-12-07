@@ -46,7 +46,7 @@
             voteButton.classList.toggle('voted');
             
             // Update the button's HTML based on the voting state
-            var imageTag = method === 'POST' ? '<%= image_tag("vote-for.png", alt: "Vote for", class: "voted") %>' : '<%= image_tag("vote-for.png", alt: "Vote for") %>';
+            var imageTag = method === 'POST' ? '<%= image_tag("vote-for.webp", alt: "Vote for", class: "voted") %>' : '<%= image_tag("vote-for.webp", alt: "Vote for") %>';
             var buttonText = method === 'POST' ? 'Remove Vote' : 'Vote';
             voteButton.innerHTML = imageTag + '<span>' + buttonText + '</span>';
             
