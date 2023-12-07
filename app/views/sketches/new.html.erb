@@ -6,13 +6,13 @@
       <%= render "form", sketch: @sketch %>
     </turbo-frame>
     <div class="image-preview">
-      <img id="image-preview" src="#" alt="Image Preview" />
+      <img id="image-preview" src="/assets/place-holder.png" alt="Image Preview" />
     </div>
   </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('turbo:load', function() {
     const imageInput = document.querySelector('#sketch_image');
     const imagePreview = document.querySelector('#image-preview');
 
@@ -26,6 +26,8 @@
         };
 
         reader.readAsDataURL(file);
+      } else {
+        imagePreview.src = '/assets/place-holder.png';
       }
     });
   });
