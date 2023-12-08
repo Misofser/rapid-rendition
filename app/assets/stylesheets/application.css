@@ -245,6 +245,7 @@ h3 {
   height: auto;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .vote-button img {
@@ -254,6 +255,7 @@ h3 {
   
 .vote-button.voted {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .voted-button img {
