@@ -5,6 +5,8 @@ class User < ApplicationRecord
     has_many :votes, :dependent => :destroy
     has_many :challenges
 
+    validates :email, presence: true, uniqueness: true
+
     def admin? 
         self.role == 'admin'
     end
