@@ -814,6 +814,12 @@ footer {
   color:#66818c;
 }
 
+#error_explanation ul {
+  color: rgb(252, 80, 80);
+  list-style: none;
+  padding: 0;
+}
+
 @media screen and (max-width: 768px) {
   .burger {
     display: block;

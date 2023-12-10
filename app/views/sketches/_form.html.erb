@@ -2,8 +2,6 @@
   <% if @sketch.errors.any? %>
     <div id="error_explanation">
 
-      <h2><%= pluralize(sketch.errors.count, "error") %> prohibited this sketch from being saved:</h2>
-
       <ul>
         <% sketch.errors.full_messages.each do |message| %>
           <li><%= message %></li>
