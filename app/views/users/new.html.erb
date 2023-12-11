@@ -4,22 +4,8 @@
 
       <h1>sign up</h1>
 
-      <%= form_for(@user) do |f| %>
-        <div class="form-field">
-          <%= f.text_field :first_name, :placeholder => "First name", class: "form-input" %>
-        </div>
-        <div class="form-field">
-          <%= f.text_field :last_name, :placeholder => "Last name", class: "form-input" %>
-        </div>
-        <div class="form-field">
-          <%= f.email_field :email, :placeholder => "Email", class: "form-input" %>
-        </div>
-        <div class="form-field">
-          <%= f.password_field :password, :placeholder => "Password", class: "form-input" %>
-        </div>
-        <div class="form-field">
-          <%= f.submit "Create an account", class: "btn-submit"%>
-        </div>
+      <%= turbo_frame_tag "user-form" do %>
+        <%= render "users/form", user: @user %>
       <% end %>
 
     </div>
