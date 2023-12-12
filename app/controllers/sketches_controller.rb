@@ -21,7 +21,7 @@ class SketchesController < ApplicationController
     if @sketch.save
       redirect_to @sketch
     else
-      render turbo_stream: turbo_stream.replace('form-frame', partial: 'form', locals: { sketch: @sketch })
+      render turbo_stream: turbo_stream.update('form-frame', partial: 'form', locals: { sketch: @sketch })
     end
   end
 
