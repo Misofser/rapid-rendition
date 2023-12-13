@@ -18,7 +18,9 @@
 <div class="sketches-for-voting">
   <% @user.sketches.each do |sketch| %>
     <div class="challenge-sketches-container">
-      <%= image_tag sketch.image %>
+      <a href="/sketches/<%= sketch.id %>">
+        <%= image_tag sketch.image %>
+      </a>
       <p class="your-sketch-caption">Challenge: <%= link_to sketch.challenge.title, challenge_path(sketch.challenge) %></p>
     </div>
   <% end %>
