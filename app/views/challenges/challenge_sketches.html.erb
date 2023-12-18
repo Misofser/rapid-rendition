@@ -21,6 +21,20 @@
   document.addEventListener('turbo:load', function() {
     var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+    document.addEventListener('mouseover', function (event) {
+      var voteButton = event.target.closest('.vote-button');
+      if (voteButton) {
+        voteButton.classList.add('heartBeat');
+      }
+    });
+
+    document.addEventListener('mouseout', function (event) {
+      var voteButton = event.target.closest('.vote-button');
+      if (voteButton) {
+        voteButton.classList.remove('heartBeat');
+      }
+    });
+
     document.addEventListener('click', function(event) {
       var voteButton = event.target.closest('.vote-button');
       if (voteButton) {
@@ -46,9 +60,9 @@
             voteButton.classList.toggle('voted');
             
             // Update the button's HTML based on the voting state
-            var imageTag = method === 'POST' ? '<%= image_tag("vote-for.webp", alt: "Vote for", class: "voted") %>' : '<%= image_tag("vote-for.webp", alt: "Vote for") %>';
+            var imageTag = method === 'POST' ? '<%= image_tag("vote-on-hover.png", alt: "Unvote", class: "voted") %>' : '<%= image_tag("vote.png", alt: "Vote for") %>';
             var buttonText = method === 'POST' ? 'Remove Vote' : 'Vote';
-            voteButton.innerHTML = imageTag + '<span>' + buttonText + '</span>';
+            voteButton.innerHTML = imageTag;
             
             // Update the data-url attribute for the button based on the new action
             var newAction = method === 'POST' ? action + '/1' : action.replace('/1', '');

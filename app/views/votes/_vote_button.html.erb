@@ -1,11 +1,9 @@
 <% if sketch.votes.exists?(user: current_user) %>
   <button class="vote-button voted" data-url="<%= sketch_vote_path(sketch) %>" data-sketch-id="<%= sketch.id %>">
-    <%= image_tag("vote-for.webp", alt: "Vote for", class: "voted") %>
-    <span>Remove Vote</span>
+    <%= image_tag("vote-on-hover.png", alt: "Unvote", class: "voted") %>
   </button>
 <% else %>
   <button class="vote-button" data-url="<%= sketch_votes_path(sketch) %>" data-sketch-id="<%= sketch.id %>">
-    <%= image_tag("vote-for.webp", alt: "Vote for") %>
-    <span>Vote</span>
+    <%= image_tag("vote.png", alt: "Vote for") %>
   </button>
 <% end %>
