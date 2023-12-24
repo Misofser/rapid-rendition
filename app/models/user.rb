@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_many :challenges
 
     validates :email, presence: true, uniqueness: true
+    validates :password, confirmation: true
 
     def admin? 
         self.role == 'admin'
