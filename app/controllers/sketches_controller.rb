@@ -10,6 +10,7 @@ class SketchesController < ApplicationController
 
   def show
     @voted = @sketch.votes.where(user: current_user).exists?
+    @vote_count = @sketch.vote_count
   end
   
   def new

@@ -7,6 +7,10 @@ class Sketch < ApplicationRecord
     validate :validate_image_size
     before_save :set_custom_filename
 
+    def vote_count
+      votes.count
+    end
+
     def position_in_rankings
         ranking = challenge.sketch_ratings
         index = ranking.index(self)

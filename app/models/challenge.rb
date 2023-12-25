@@ -6,9 +6,9 @@ class Challenge < ApplicationRecord
 
   def sketch_ratings
     sketches.joins(:votes)
-           .group('sketches.id')
-           .select('sketches.*, AVG(votes.value) AS average_rating')
-           .order('average_rating DESC')
-  end
+            .group('sketches.id')
+            .select('sketches.*, COUNT(votes.id) AS vote_count')
+            .order('vote_count DESC')
+  end  
 
 end

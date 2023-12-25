@@ -12,6 +12,7 @@
     <h1>Challenge: <%= link_to @sketch.challenge.title, challenge_path(@sketch.challenge) %></h1>
     <p>Author: <%= @sketch.user.full_name %></p>
     <p>Place in current competition: <%= @sketch.position_in_rankings %></p>
+    <p><%= image_tag('vote.png', alt: 'Heart Icon', class: 'heart-icon') %>: <span class="vote-count"> <%= @vote_count %></span></p>
 
     <div class="sketch-buttons">
       <% if @sketch.user == current_user %>
