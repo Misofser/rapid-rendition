@@ -8,6 +8,12 @@
         <%= render "users/form", user: @user %>
       <% end %>
 
+      <div class="separator-line"></div>
+
+      <div class="account-question">
+        Already have an account? <%= link_to "Log in", login_path %>
+      </div>
+
     </div>
   </div>
 </div>

@@ -416,7 +416,7 @@ h3 {
 }
 
 .login h1 {
-  font-size: 44px;
+  font-size: 42px;
   margin-bottom: 20px;
   color: #333;
   margin-top: 0;
@@ -451,6 +451,20 @@ h3 {
 
 .btn-submit:hover {
   background-color:#66818c
+}
+
+.separator-line {
+  height: 1.5px;
+  background-color: #ccc;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.account-question {
+  margin-bottom: 15px;
 }
 
 .challenge-voting-page {
@@ -1176,6 +1190,10 @@ footer {
   .footer ul {
     display: flex;
     flex-direction: column;
+  }
+
+  .account-question {
+    font-size: 14px;
   }
 
 }

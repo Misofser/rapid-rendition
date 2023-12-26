@@ -5,6 +5,12 @@
 			<%= turbo_frame_tag "form-frame" do %>
 				<%= render "sessions/form", user: @user %>
 			<% end %>
+
+			<div class="separator-line"></div>
+
+			<div class="account-question">
+  				Don't have an account? <%= link_to "Sign up", signup_path %>
+			</div>
 		</div>
 	</div>
 </div>
