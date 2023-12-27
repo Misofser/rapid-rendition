@@ -60,23 +60,25 @@
       </header>
     </turbo-frame>
 
-     <script>
-      document.addEventListener('turbo:load', function() {
-        console.log("Turbo Load");
-      
-        var burgerElement = document.getElementById('burger');
+    <script>
+      function handleBurgerClick() {
+        console.log("Burger Clicked");
         var navbarElement = document.querySelector('.navbar');
         var navLinks = document.querySelector('.nav-links'); 
-      
+        navbarElement.classList.toggle('active');
+        navLinks.classList.toggle('active'); 
+      }
+    
+      document.addEventListener('turbo:load', function() {
+        console.log("Turbo Load");
+    
+        var burgerElement = document.getElementById('burger');
         console.log("Burger Element:", burgerElement);
-      
-        burgerElement.addEventListener('click', function() {
-          console.log("Burger Clicked");
-          navbarElement.classList.toggle('active');
-          navLinks.classList.toggle('active'); 
-        });
+    
+        burgerElement.removeEventListener('click', handleBurgerClick);
+        burgerElement.addEventListener('click', handleBurgerClick);
       });
-    </script>
+  </script>
 
     <main>
       <%= render 'shared/demo_banner' if show_demo_banner? %>
