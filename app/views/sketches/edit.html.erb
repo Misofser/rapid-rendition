@@ -5,13 +5,13 @@
 
     <%= render "form", sketch: @sketch %>
     <div class="image-preview">
-      <img id="image-preview" src="#" alt="Image Preview" />
+      <%= image_tag @sketch.image, id: 'image-preview', alt: 'Image Preview' %>
     </div>
   </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('turbo:load', function() {
     const imageInput = document.querySelector('#sketch_image');
     const imagePreview = document.querySelector('#image-preview');
 
