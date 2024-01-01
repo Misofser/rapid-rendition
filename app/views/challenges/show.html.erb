@@ -3,7 +3,7 @@
   
   <div class="challenge-voting-page">
     <h2><%= link_to "Vote", challenge_sketches_challenge_path(@challenge), class: "votes-challenge-button" %></h2>
-    <h2><%= link_to "Participate", new_sketch_path, class: "participate-challenge-button" %></h2>
+    <h2><%= link_to "Participate", new_sketch_path(challenge_id: @challenge.id), class: "participate-challenge-button" %></h2>
   </div>
 
   <a href="#description-anchor" class="scroll-to-description">

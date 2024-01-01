@@ -18,7 +18,11 @@
   
   <div>
     <%= form.label :challenge_id %>
-    <%= form.collection_select :challenge_id, Challenge.all, :id, :title, prompt: true %>
+    <% if @challenge_id.present? %>
+      <%= form.collection_select :challenge_id, Challenge.all, :id, :title, { selected: @challenge_id }, promt: true %>
+    <% else %>
+      <%= form.collection_select :challenge_id, Challenge.all, :id, :title, prompt: true %>
+    <% end %>
   </div>
 
   <div class="sketch-form-submit">

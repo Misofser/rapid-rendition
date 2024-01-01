@@ -15,6 +15,7 @@ class SketchesController < ApplicationController
   
   def new
     @sketch = Sketch.new
+    @challenge_id = params[:challenge_id]
   end
 
   def create
