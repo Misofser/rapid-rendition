@@ -27,10 +27,6 @@ class ChallengesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-  def challenge_sketches
-    @sketches = @challenge.sketches
-  end
   
   def edit
   end

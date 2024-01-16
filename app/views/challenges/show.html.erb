@@ -2,25 +2,18 @@
   <h1><%= @challenge.title %></h1>
   
   <div class="challenge-voting-page">
-    <h2><%= link_to "Vote", challenge_sketches_challenge_path(@challenge), class: "votes-challenge-button" %></h2>
+    <button id="voteButton" class="votes-challenge-button">Vote</button>
     <h2><%= link_to "Participate", new_sketch_path(challenge_id: @challenge.id), class: "participate-challenge-button" %></h2>
   </div>
-
-  <a href="#description-anchor" class="scroll-to-description">
-    <div class="description-label">
-      Description
-      <span class="arrow-down"></span>
-    </div>
-  </a>
 </div>
 
 <div class="details-container">
   <section class="details-section">
-    <a id="description-anchor"></a>
     <div class="competition-details">
       <h3>Description</h3>
       <div class="header-line"></div>
       <p><%= @challenge.description %></p>
+      <div class="header-line"></div>
     </div>
   </section>
 </div>
@@ -35,13 +28,88 @@
   </ul>
 <% end %>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var descriptionLabel = document.querySelector('.scroll-to-description');
+  <div id="voting-section" class="vote-section">
+    <h3>Vote for Sketches You Like</h3>
+  </div>
 
-    descriptionLabel.addEventListener('click', function(event) {
-      event.preventDefault();
-      document.querySelector('#description-anchor').scrollIntoView({ behavior: 'smooth' });
+  <turbo-frame id="sketch-votes-frame">
+    <div class="sketches-for-voting">
+      <% @sketches.each do |sketch| %>
+        <div class="challenge-sketches-container" data-sketch-id="<%= sketch.id %>">
+          <%= image_tag sketch.image %>
+          <div class="sketch-vote">
+            <%= render partial: "votes/vote_button", locals: { sketch: sketch } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </turbo-frame>
+
+<script>
+  document.addEventListener('turbo:load', function() {
+    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    document.addEventListener('mouseover', function (event) {
+      var voteButton = event.target.closest('.vote-button');
+      if (voteButton) {
+        voteButton.classList.add('heartBeat');
+      }
+    });
+
+    document.addEventListener('mouseout', function (event) {
+      var voteButton = event.target.closest('.vote-button');
+      if (voteButton) {
+        voteButton.classList.remove('heartBeat');
+      }
+    });
+
+    document.addEventListener('click', function(event) {
+      var voteButton = event.target.closest('.vote-button');
+      if (voteButton) {
+        event.preventDefault();
+
+        var isLoggedIn = <%= current_user.present? %>;
+
+        if (!isLoggedIn) {
+          window.location.href = '/login';
+          return;
+        }
+
+        var action = voteButton.dataset.url;
+        var method = voteButton.classList.contains('voted') ? 'DELETE' : 'POST'; // Toggle between POST and DELETE
+        
+        fetch(action, {
+          method: method,
+          headers: {
+            'X-CSRF-Token': csrfToken,
+          },
+        }).then(response => {
+          if (response.ok) {
+            voteButton.classList.toggle('voted');
+            
+            // Update the button's HTML based on the voting state
+            var imageTag = method === 'POST' ? '<%= image_tag("vote-on-hover.png", alt: "Unvote", class: "voted") %>' : '<%= image_tag("vote.png", alt: "Vote for") %>';
+            var buttonText = method === 'POST' ? 'Remove Vote' : 'Vote';
+            voteButton.innerHTML = imageTag;
+            
+            // Update the data-url attribute for the button based on the new action
+            var newAction = method === 'POST' ? action + '/1' : action.replace('/1', '');
+            voteButton.dataset.url = newAction;
+          } else {
+            console.error('An error occurred:', error); 
+          }
+        }).catch(error => {
+          console.error('An error occurred:', error);
+        });
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('turbo:load', function() {
+    document.getElementById("voteButton").addEventListener("click", function() {
+      document.querySelector("#voting-section").scrollIntoView({ behavior: "smooth" });
     });
   });
 </script>

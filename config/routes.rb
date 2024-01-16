@@ -9,11 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :challenges do
-    member do
-      get 'challenge_sketches' => 'challenges#challenge_sketches'
-    end
-  end
+  resources :challenges
 
   resources :users
   get 'signup'  => 'users#new' 
