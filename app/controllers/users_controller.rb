@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user, only: [:show, :destroy]
   before_action :current_user, only: [:show, :destroy]
+  before_action :check_user_access, only: [:show, :destroy]
 
   def show
     @user = User.find(params[:id])
@@ -37,5 +38,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end 
+
+  def check_user_access
+    redirect_to root_path, alert: "Access denied" unless params[:id].to_i == current_user&.id
+  end  
 
 end
