@@ -5,12 +5,16 @@
     <p>Sketches: <strong><%= @sketch_count %></strong></p>
   </div>
 
-  <div class="delete-account-button">
-    <%= link_to "Delete Account", user_path(@user), data: {
-      turbo_method: :delete,
-      turbo_confirm: "If you delete your account, all the sketches you have uploaded will also be deleted. Are you sure you want to delete your account?"
-    } %>
+  <div class="new-sketch-button-user-page">
+    <%= link_to "New Sketch", new_sketch_path %>
   </div>
+
+<div class="delete-account-button">
+  <%= link_to(user_path(@user), data: { turbo_method: :delete, turbo_confirm: "If you delete your account, all the sketches you have uploaded will also be deleted. Are you sure you want to delete your account?" }) do %>
+    <%= image_tag("delete.png", alt: "Delete Icon", class: "delete-icon") %>
+  <% end %>
+</div>
+
   
 </div>
 
