@@ -1141,6 +1141,7 @@ footer {
   .user-welcome h1 {
     margin-top: 30px;
     font-size: 36px;
+    max-width: 74%;
   }
 
   .user-welcome h1 br {
@@ -1155,13 +1156,19 @@ footer {
     font-size: 14px;
   }
 
-  .delete-account-button, .sketch-count {
+  .new-sketch-button-user-page, .sketch-count {
     font-size: 14px;
     padding: 8px 16px;
     position: relative;
     bottom: 0;
     right: 0;
     margin-top: 10px;
+  }
+
+  .delete-account-button {
+    top: 10px;
+    right: 0;
+    background-color:#ffeeee;
   }
 
   .footer li {
