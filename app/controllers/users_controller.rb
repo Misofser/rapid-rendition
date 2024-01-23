@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :require_user, only: [:show, :destroy]
-  before_action :current_user, only: [:show, :destroy]
-  before_action :check_user_access, only: [:show, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:show, :edit, :update, :destroy]
+  before_action :current_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_user_access, only: [:show, :edit, :update, :destroy]
 
   def show
-    @user = User.find(params[:id])
     @sketch_count = @user.sketches.count
   end
 
@@ -22,9 +22,18 @@ class UsersController < ApplicationController
     end 
   end
 
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user, notice: 'Profile was updated'
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    @user = User.find(params[:id])
-    
     if @user.destroy
       flash[:notice] = "Your account has been deleted."
       redirect_to root_path
@@ -35,6 +44,10 @@ class UsersController < ApplicationController
   end
   
   private
+  def find_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end 
