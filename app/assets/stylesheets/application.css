@@ -745,7 +745,7 @@ h3 {
   font-size: 18px;
 }
 
-.delete-account-button {
+.edit-account-button {
   border-radius: 50%;
   transition: background-color 0.3s ease-out;
   position: absolute;
@@ -756,11 +756,11 @@ h3 {
   background-color: #fefdfa;
 }
 
-.delete-account-button:hover {
+.edit-account-button:hover {
   background-color:#dffffe;
 }
 
-.delete-icon {
+.edit-icon {
   margin-top: 1px;
   width: 34px;
   height: 34px;
@@ -1165,10 +1165,10 @@ footer {
     margin-top: 10px;
   }
 
-  .delete-account-button {
+  .edit-account-button {
     top: 10px;
     right: 0;
-    background-color:#ffeeee;
+    background-color:#e2fdff;
   }
 
   .footer li {

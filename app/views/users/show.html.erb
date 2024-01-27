@@ -9,12 +9,11 @@
     <%= link_to "New Sketch", new_sketch_path %>
   </div>
 
-<div class="delete-account-button">
-  <%= link_to(user_path(@user), data: { turbo_method: :delete, turbo_confirm: "If you delete your account, all the sketches you have uploaded will also be deleted. Are you sure you want to delete your account?" }) do %>
-    <%= image_tag("delete.png", alt: "Delete Icon", class: "delete-icon") %>
-  <% end %>
-</div>
-
+  <div class="edit-account-button">
+    <%= link_to(edit_user_path(@user)) do %>
+      <%= image_tag("edit.png", alt: "Edit Icon", class: "edit-icon") %>
+    <% end %>
+  </div>
   
 </div>
 
