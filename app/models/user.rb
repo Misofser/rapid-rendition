@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    attr_accessor :current_password
 
     has_secure_password
     has_many :sketches, :dependent => :destroy
@@ -6,7 +7,8 @@ class User < ApplicationRecord
     has_many :challenges
 
     validates :email, presence: true, uniqueness: true
-    validates :password, confirmation: true
+    validates :password, presence: true, confirmation: true, on: :create
+    validates :current_password, presence: true, on: :update
 
     def admin? 
         self.role == 'admin'
@@ -14,6 +16,6 @@ class User < ApplicationRecord
 
     def full_name
         "#{first_name} #{last_name}"
-    end    
-
+    end
+    
 end

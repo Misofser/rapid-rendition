@@ -1,0 +1,22 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+      <h1>edit profile</h1>
+
+      <%= turbo_frame_tag "user-form" do %>
+        <%= render "users/form", user: @user %>
+      <% end %>
+
+      <div class="separator-line"></div>
+
+      <div class="delete-account-button">
+        <%= link_to(user_path(@user), data: { turbo_method: :delete, turbo_confirm: "If you delete your account, all the sketches you have uploaded will also be deleted. Are you sure you want to delete your account?" }) do %>
+            <%= image_tag("delete.png", alt: "Delete Icon", class: "delete-icon") %>
+            Delete Account
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

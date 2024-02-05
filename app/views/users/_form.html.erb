@@ -2,7 +2,7 @@
     <% if @user.errors.any? %>
       <div id="error_explanation">
         <ul>
-          <% user.errors.full_messages.each do |msg| %>
+          <% @user.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
         </ul>
@@ -12,19 +12,30 @@
     <div class="form-field">
       <%= f.text_field :first_name, :placeholder => "First name", class: "form-input" %>
     </div>
+
     <div class="form-field">
       <%= f.text_field :last_name, :placeholder => "Last name", class: "form-input" %>
     </div>
+
     <div class="form-field">
       <%= f.email_field :email, :placeholder => "Email", class: "form-input" %>
     </div>
+
     <div class="form-field">
-      <%= f.password_field :password, :placeholder => "Password", class: "form-input" %>
+      <% if  @user.id.present? %>
+        <%= f.password_field :current_password, :placeholder => "Current Password", class: "form-input" %>
+      <% end %>
     </div>
+
     <div class="form-field">
-      <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-input" %>
+      <%= f.password_field :password, :placeholder => @user.id.present? ? "New Password" : "Password", class: "form-input" %>
     </div>
+    
     <div class="form-field">
-      <%= f.submit "Create an account", class: "btn-submit"%>
+      <%= f.password_field :password_confirmation, :placeholder => @user.id.present? ? "Confirm New Password" : "Confirm Password", class: "form-input" %>
+    </div>
+
+    <div class="form-field">
+      <%= f.submit class: "btn-submit"%>
     </div>
 <% end %>

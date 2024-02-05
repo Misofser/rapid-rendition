@@ -24,15 +24,19 @@ class UsersController < ApplicationController
 
   def edit
   end
-
+  
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'Profile was updated'
+    if params[:user][:current_password].present? && !@user.authenticate(params[:user][:current_password])
+      @user.errors.add(:current_password, "is incorrect")
+      render turbo_stream: turbo_stream.update("user-form", partial: "form", locals: { user: @user })
+    elsif @user.update(user_params)
+      flash[:notice] = "Profile updated successfully"
+      redirect_to @user
     else
-      render :edit
+      render turbo_stream: turbo_stream.update("user-form", partial: "form", locals: { user: @user })
     end
   end
-
+  
   def destroy
     if @user.destroy
       flash[:notice] = "Your account has been deleted."
@@ -49,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
   end 
 
   def check_user_access

@@ -798,6 +798,38 @@ h3 {
   margin: 0;
 }
 
+.delete-account-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-out;
+  font-size: 16px;
+  background-color: #e4e4e4;
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.delete-account-button a {
+  color:#66818c;
+  text-decoration: none;
+  display: inline-flex; 
+  align-items: center; 
+}
+
+.delete-account-button:hover {
+  background-color: rgb(255, 211, 211);
+}
+
+.delete-icon {
+  width: 30px;
+  height: auto;
+  margin-right: 8px;
+}
+
 footer, footer ul, footer li, footer a {
   margin: 0;
   padding: 0;
