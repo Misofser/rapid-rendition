@@ -10,6 +10,10 @@
 
       <div class="separator-line"></div>
 
+      <div class="account-question">
+        <span id="change-password-button">Change your password?</span>
+      </div>
+
       <div class="delete-account-button">
         <%= link_to(user_path(@user), data: { turbo_method: :delete, turbo_confirm: "If you delete your account, all the sketches you have uploaded will also be deleted. Are you sure you want to delete your account?" }) do %>
             <%= image_tag("delete.png", alt: "Delete Icon", class: "delete-icon") %>
@@ -20,3 +24,18 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('turbo:load', function() {
+    var changePasswordButton = document.getElementById('change-password-button');
+
+    if (changePasswordButton) {
+      changePasswordButton.addEventListener('click', function () {
+        var newPasswordFields = document.getElementById('new-password-fields');
+        if (newPasswordFields) {
+          newPasswordFields.style.display = newPasswordFields.style.display === 'none' ? 'block' : 'none';
+        }
+      });
+    }
+  });
+</script>

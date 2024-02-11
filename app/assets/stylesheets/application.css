@@ -766,6 +766,21 @@ h3 {
   height: 34px;
 }
 
+#new-password-fields {
+  display: none;
+}
+
+#change-password-button {
+  color:#66818c;
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    color:#76acab;
+    text-decoration: none;
+  }
+}
+
 .new-sketch-button-user-page {
   padding: 10px 20px;
   border-radius: 30px;
