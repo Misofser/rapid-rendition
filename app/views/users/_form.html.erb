@@ -46,6 +46,6 @@
   <% end %>
 
   <div class="form-field">
-    <%= f.submit "Update Profile", class: "btn-submit" %>
+    <%= f.submit(f.object.persisted? ? "Update Profile" : "Create Profile", class: "btn-submit") %>
   </div>
 <% end %>
